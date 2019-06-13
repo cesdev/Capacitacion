@@ -1,0 +1,38 @@
+--CREAR Service Principal
+az ad sp create-for-rbac --skip-assignment
+
+--VER ID DE REPOSITORIO
+az acr show --resource-group SampleResourceGroup --name sampleacr123 --query "id"
+
+--CONFIGURAR AUTENTICACION ACR
+az role assignment create --assignee 35d51a2b-2263-4750-95ab-8bebd0e66c11 --scope /subscriptions/a78dd370-2e4d-44b3-a09f-74bcc3383653/resourceGroups/SampleResourceGroup/providers/Microsoft.ContainerRegistry/registries/sampleacr123 --role acrpull
+
+--INSTALAR AKS CLI
+az aks install-cli
+
+--CONFIGURAR AUTENTICACION AKS
+az aks get-credentials --resource-group SampleResourceGroup --name SampleAKSCluster
+
+--INICIAR DASBOARD
+az aks browse --resource-group SampleResourceGroup --name SampleAKSCluster
+
+--INICIAR SESION EN ACR para subir imagen
+az acr login --name sampleacr123
+
+-- CONSULTAR URL DE REGISTRO DE CONTENEDORES
+az acr list --resource-group SampleResourceGroup --query "[].{acrLoginServer:loginServer}"
+
+---TAGGER imagen
+docker tag samplewebapi sampleacr123.azurecr.io/samplewebapi:v1
+
+--SUBIR imagen
+docker push sampleacr123.azurecr.io/samplewebapi:v1
+
+--LISTAR IMAGENES DE azurecr
+az acr repository list --name sampleacr123 --output table
+
+--DESPLEGAR SERVICIO
+kubectl apply -f samplewebapi.yaml
+kubectl get service sample-web-api --watch
+
+http://13.93.201.111/api/values
