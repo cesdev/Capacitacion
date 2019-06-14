@@ -1,28 +1,28 @@
 variable "client_id" {
-	default="35d51a2b-2263-4750-95ab-8bebd0e66c11"	        
+	default="71fbda64-7777-4e45-89a2-9b7e7b7e111b"	        
 }
 
 variable "client_secret" {
-	default="0c6d3baa-e063-417a-bf77-e213c80c467f"	
+	default="0b36728e-61ad-46f5-9762-e1e3f73d899f"	
 }
 
 provider "azurerm" {
         subscription_id = "a78dd370-2e4d-44b3-a09f-74bcc3383653"       
 }
 resource "azurerm_resource_group" "rg" {
-        name = "SampleResourceGroup"
+        name = "JulioVResourceGroup"
         location = "westus"
 }
 
 resource "azurerm_container_registry" "acr" {
-        name                     = "sampleacr123"
+        name                     = "juliovacr123"
         resource_group_name      = "${azurerm_resource_group.rg.name}"
         location                 = "${azurerm_resource_group.rg.location}"
         sku                      = "Basic"
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-        name                = "SampleAKSCluster"
+        name                = "JulioVAKSCluster"
         location            = "${azurerm_resource_group.rg.location}"
         resource_group_name = "${azurerm_resource_group.rg.name}"
         dns_prefix          = "acctestagent1"
