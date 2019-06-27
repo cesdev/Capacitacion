@@ -1,8 +1,8 @@
-FROM microsoft/aspnetcore:2.0 AS base
+FROM microsoft/aspnetcore:2.0-stretch AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/aspnetcore-build:2.0-stretch AS build
 WORKDIR /src
 COPY ["SampleWebApi/SampleWebApi.csproj", "SampleWebApi/"]
 RUN dotnet restore "SampleWebApi/SampleWebApi.csproj"
