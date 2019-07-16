@@ -11,10 +11,12 @@ Para seguir este tuturial debe tener lo siguiente
 El proyecto utlizado para el tutorial es un proyecto básico creado en base a la plantilla API en Visual Studio y se ha configurado swagger para probar de forma facil el web api. 
 <p>Este proyecto contiene el archivo <b>Dockerfile</b>, el cual nos va ha permitir incluir la aplicacion en una imagen de contenedor docker.
 <p> Para construir y probar la imagen docker ejecutar los siguientes comandos
- ```
+
+```
 docker build -f webapi/dockerfile -t webapi:v1 .
 docker run -p 5001:80 webapi:v1
 ```
+
 <p> Ingresar a http://localhost:5001/swagger/index.html, para verificar que el contenedor se esté ejecutando
  
 ## Creación de un Service Principal
