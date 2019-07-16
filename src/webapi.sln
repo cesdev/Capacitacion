@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapi", "webapi\webapi.csproj", "{095CD044-DB18-4488-B20B-44DB01F51329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "webapi\webapi.csproj", "{095CD044-DB18-4488-B20B-44DB01F51329}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployments", "deployments", "{49189070-BF47-46D6-93E6-EFBE1C6094AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{2D331088-B6C1-41C5-8575-14BE2FFFF764}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\infrastructure\deployment.tf = deployments\infrastructure\deployment.tf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "service", "service", "{49832046-6D85-47B3-A731-0A0F5ADE9E39}"
+	ProjectSection(SolutionItems) = preProject
+		deployments\services\samplewebapi.yaml = deployments\services\samplewebapi.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +30,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D331088-B6C1-41C5-8575-14BE2FFFF764} = {49189070-BF47-46D6-93E6-EFBE1C6094AE}
+		{49832046-6D85-47B3-A731-0A0F5ADE9E39} = {49189070-BF47-46D6-93E6-EFBE1C6094AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40F26F19-9993-456C-B17C-0339BD877923}
