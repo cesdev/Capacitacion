@@ -21,7 +21,15 @@ docker run -p 5001:80 webapi:v1
 <p> Ingresar a http://localhost:5001/swagger/index.html, para verificar que el contenedor se esté ejecutando
 
 ## Creación de infraestructura AKS
-Para la creación del infraestructura utilizaremos Terraform. Para ello ejecutar los siguientes commandos
+Para la creación del infraestructura utilizaremos Terraform. 
+
+<p>Iniciar sesión en Azure con el siguiente comando
+
+```
+az login
+```
+
+<p>Crear el cluster aks con los siguientes commandos
 
 ```
 terraform init
