@@ -3,6 +3,7 @@ En este tuturial se implementará un web api en docker y será desplegado en Azu
 es mostrar las tecnologias utilizadas para el desarrollo de aplicaciones orientadas a microservicios.
 ## Requistos
 Para seguir este tuturial debe tener lo siguiente
+* NetCore SDK (https://dotnet.microsoft.com/download)
 * Visual Studio 2019 (https://visualstudio.microsoft.com/es/vs/)
 * Docker   (https://www.docker.com/products/docker-desktop)
 * Terraform (https://www.terraform.io/)
@@ -18,12 +19,15 @@ docker run -p 5001:80 webapi:v1
 ```
 
 <p> Ingresar a http://localhost:5001/swagger/index.html, para verificar que el contenedor se esté ejecutando
- 
-## Creación de un Service Principal
 
-## Creación de infraestructura
+## Creación de infraestructura AKS
+Para la creación del infraestructura utilizaremos Terraform. Para ello ejecutar los siguientes commandos
 
-## Configurar Services Principal
+```
+terraform init
+terraform plan
+terraform apply
+```
 
 ## Accediendo al Dashboard de Kubernetes
 
