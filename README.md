@@ -18,11 +18,11 @@ docker build -f webapi/dockerfile -t webapi:v1 .
 docker run -p 5001:80 webapi:v1
 ```
 
-<p> Ingresar a http://localhost:5001/swagger/index.html, para verificar que el contenedor se esté ejecutando
+<p> Ingresar a http://localhost:5001/swagger/index.html , para verificar que el contenedor se esté ejecutando
 
 ## Creación de infraestructura AKS
 Para la creación del infraestructura utilizaremos Terraform. 
-
+<p>La definición de la insfraestructura como codigo se encuentra en el archivo src/deployments/infrastructure/deployment.tf
 <p>Iniciar sesión en Azure con el siguiente comando
 
 ```
