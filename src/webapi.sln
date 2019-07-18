@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "service", "service", "{49832046-6D85-47B3-A731-0A0F5ADE9E39}"
 	ProjectSection(SolutionItems) = preProject
-		deployments\services\samplewebapi.yaml = deployments\services\samplewebapi.yaml
+		deployments\services\webapi.yaml = deployments\services\webapi.yaml
 	EndProjectSection
 EndProject
 Global

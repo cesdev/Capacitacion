@@ -1,3 +1,7 @@
+variable "environment" {
+	default="julio456"	        
+}
+
 variable "client_id" {
 	default="71fbda64-7777-4e45-89a2-9b7e7b7e111b"	        
 }
@@ -9,20 +13,21 @@ variable "client_secret" {
 provider "azurerm" {
         subscription_id = "a78dd370-2e4d-44b3-a09f-74bcc3383653"       
 }
+
 resource "azurerm_resource_group" "rg" {
-        name = "JulioVResourceGroup"
+        name = "${var.environment}ResourceGroup"
         location = "westus"
 }
 
 resource "azurerm_container_registry" "acr" {
-        name                     = "juliovacr123"
+        name                     = "${var.environment}ACR"
         resource_group_name      = "${azurerm_resource_group.rg.name}"
         location                 = "${azurerm_resource_group.rg.location}"
         sku                      = "Basic"
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-        name                = "JulioVAKSCluster"
+        name                = "${var.environment}AKSCluster"
         location            = "${azurerm_resource_group.rg.location}"
         resource_group_name = "${azurerm_resource_group.rg.name}"
         dns_prefix          = "acctestagent1"

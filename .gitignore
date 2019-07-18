@@ -340,5 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 #Terraform files
-.terraform/*
-terraform.tfstate*
+/src/deployments/infrastructure/.terraform/*
+/src/deployments/infrastructure/terraform.tfstate
