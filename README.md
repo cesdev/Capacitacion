@@ -58,19 +58,19 @@ az aks browse --resource-group SampleResourceGroup --name SampleAKSCluster
  
  ```
 --INICIAR SESION EN ACR 
-az acr login --name sampleacr123
+az acr login --name sampleACR
 
 --TAG IMAGEN
-docker tag samplewebapi sampleacr123.azurecr.io/samplewebapi:v1
+docker tag webapi sampleACR.azurecr.io/webapi:v1
 
 --SUBIR imagen
-docker push sampleacr123.azurecr.io/samplewebapi:v1
+docker push sampleaACR.azurecr.io/webapi:v1
 ```
 
 ## Desplegar contenedor en AKS
 Finalmente desplegamos la imagen subida al repositorio ACR, con los siguientes comandos
 
 ```
-kubectl apply -f samplewebapi.yaml
-kubectl get service sample-web-api --watch
+kubectl apply -f webapi.yaml
+kubectl get service web-api --watch
 ```
