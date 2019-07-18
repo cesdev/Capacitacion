@@ -4,7 +4,7 @@ es mostrar las tecnologias utilizadas para el desarrollo de aplicaciones orienta
 ## Requistos
 Para seguir este tuturial debe tener lo siguiente
 * NetCore SDK (https://dotnet.microsoft.com/download)
-* Visual Studio 2019 (https://visualstudio.microsoft.com/es/vs/)
+* Visual Studio Code (https://code.visualstudio.com)
 * Docker   (https://www.docker.com/products/docker-desktop)
 * Terraform (https://www.terraform.io/)
 * Azure CLI (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest)
@@ -51,8 +51,26 @@ az aks get-credentials --resource-group SampleResourceGroup --name SampleAKSClus
 --INICIAR DASBOARD
 az aks browse --resource-group SampleResourceGroup --name SampleAKSCluster
 ```
+<p>Se abrirá automáticamente el navegador con el panel de control del cluster AKS
 
 ## Subir imagen docker a ACR
+<p>Para subir la imagen docker que contiene la aplicación al repositorio de Azure ejecutar lo siguiente
+ 
+ ```
+--INICIAR SESION EN ACR 
+az acr login --name sampleacr123
+
+--TAG IMAGEN
+docker tag samplewebapi sampleacr123.azurecr.io/samplewebapi:v1
+
+--SUBIR imagen
+docker push sampleacr123.azurecr.io/samplewebapi:v1
+```
 
 ## Desplegar contenedor en AKS
- 
+Finalmente desplegamos la imagen subida al repositorio ACR, con los siguientes comandos
+
+```
+kubectl apply -f samplewebapi.yaml
+kubectl get service sample-web-api --watch
+```
