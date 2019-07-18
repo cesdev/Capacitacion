@@ -36,9 +36,10 @@ terraform init
 terraform plan
 terraform apply
 ```
-
+<p>La creación del cluster tomara aproximadamente 7 minutos.
+ 
 ## Accediendo al Dashboard de Kubernetes
-Para acceder al panel de control del cluster creado ejecutar los siguientes comandos
+Para acceder al panel de control del cluster AKS ejecutar los siguientes comandos
 
 ```
 --INSTALAR AKS CLI
