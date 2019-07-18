@@ -38,6 +38,13 @@ terraform apply
 ```
 <p>La creación del cluster tomara aproximadamente 7 minutos.
  
+## Configurando Azure Container Register
+Para que el cluster AKS tengo acceso al repositorio de imagenes creado ejecutar el siguiente comando
+
+```
+az role assignment create --assignee 71fbda64-7777-4e45-89a2-9b7e7b7e111b --scope /subscriptions/a78dd370-2e4d-44b3-a09f-74bcc3383653/resourceGroups/SampleResourceGroup/providers/Microsoft.ContainerRegistry/registries/sampleACR --role acrpull
+```
+ 
 ## Accediendo al Dashboard de Kubernetes
 Para acceder al panel de control del cluster AKS ejecutar los siguientes comandos
 
