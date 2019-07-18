@@ -14,8 +14,8 @@ El proyecto utlizado para el tutorial es un proyecto básico creado en base a la
 <p> Para construir y probar la imagen docker ejecutar los siguientes comandos
 
 ```
-docker build -f webapi/dockerfile -t webapi:v1 .
-docker run -p 5001:80 webapi:v1
+docker build -f webapi/dockerfile -t webapi .
+docker run -p 5001:80 webapi
 ```
 
 <p> Ingresar a http://localhost:5001/swagger/index.html , para verificar que el contenedor se esté ejecutando
