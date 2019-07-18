@@ -38,6 +38,18 @@ terraform apply
 ```
 
 ## Accediendo al Dashboard de Kubernetes
+Para acceder al panel de control del cluster creado ejecutar los siguientes comandos
+
+```
+--INSTALAR AKS CLI
+az aks install-cli
+
+--CONFIGURAR AUTENTICACION AKS
+az aks get-credentials --resource-group SampleResourceGroup --name SampleAKSCluster
+
+--INICIAR DASBOARD
+az aks browse --resource-group SampleResourceGroup --name SampleAKSCluster
+```
 
 ## Subir imagen docker a ACR
 
